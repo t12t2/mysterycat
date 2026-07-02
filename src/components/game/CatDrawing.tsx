@@ -12,20 +12,31 @@ interface CatDrawingProps {
  * Cute SVG cat that progressively reveals as the player makes incorrect guesses.
  * Designed to fill the left panel on desktop.
  */
-export default function CatDrawing({ incorrectGuesses, revealed = false, crying = false }: CatDrawingProps) {
+export default function CatDrawing({
+  incorrectGuesses,
+  revealed = false,
+  crying = false,
+}: CatDrawingProps) {
   const fullyShown = revealed || crying;
   const effectiveIncorrect = fullyShown ? 6 : incorrectGuesses;
 
   const revealPercent = useMemo(() => {
     if (fullyShown) return 100;
     switch (incorrectGuesses) {
-      case 0: return 0;
-      case 1: return 16.7;
-      case 2: return 33.3;
-      case 3: return 50;
-      case 4: return 66.7;
-      case 5: return 83.3;
-      default: return 100;
+      case 0:
+        return 0;
+      case 1:
+        return 16.7;
+      case 2:
+        return 33.3;
+      case 3:
+        return 50;
+      case 4:
+        return 66.7;
+      case 5:
+        return 83.3;
+      default:
+        return 100;
     }
   }, [incorrectGuesses, fullyShown]);
 
@@ -36,10 +47,10 @@ export default function CatDrawing({ incorrectGuesses, revealed = false, crying 
     : revealed
       ? "won"
       : incorrectGuesses <= 2
-      ? "safe"
-      : incorrectGuesses <= 4
-        ? "warning"
-        : "danger";
+        ? "safe"
+        : incorrectGuesses <= 4
+          ? "warning"
+          : "danger";
 
   const borderColor =
     dangerLevel === "crying"

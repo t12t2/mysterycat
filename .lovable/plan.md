@@ -1,6 +1,7 @@
 Port the Superblocks WordGuess game from GitHub into this Lovable project and publish it live.
 
 What I found in the repo
+
 - Public repo: `t12t2/wordguess_ss` (branch `superblocks/live`)
 - A fully client-side Wordle-style word-guessing game with cat illustrations, hints, leaderboard, and win/lose overlays
 - Built with React 18 + React Router + Tailwind + Superblocks runtime
@@ -8,6 +9,7 @@ What I found in the repo
 - The game stores the leaderboard in `localStorage`
 
 Plan
+
 1. **Move game logic into this project**
    - Copy `game-types.ts`, `game-engine.ts`, `leaderboard.ts`, and the four word-list files into `src/lib/`
 2. **Move game UI components into this project**

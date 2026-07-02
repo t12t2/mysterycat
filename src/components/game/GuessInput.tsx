@@ -24,15 +24,18 @@ const GuessInput = memo(function GuessInput({
         onSubmit();
       }
     },
-    [disabled, value, onSubmit]
+    [disabled, value, onSubmit],
   );
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      const val = e.target.value.toUpperCase().replace(/[^A-Z]/g, "").slice(0, 5);
+      const val = e.target.value
+        .toUpperCase()
+        .replace(/[^A-Z]/g, "")
+        .slice(0, 5);
       onChange(val);
     },
-    [onChange]
+    [onChange],
   );
 
   return (

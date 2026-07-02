@@ -25,7 +25,7 @@ export function WinOverlay({ score, word, guesses, onSaveScore, onSkip }: WinOve
         handleSave();
       }
     },
-    [name, handleSave]
+    [name, handleSave],
   );
 
   return (
@@ -107,11 +107,7 @@ export function LoseOverlay({ word, score, onPlayAgain, onViewLeaderboard }: Los
           >
             Play Again
           </Button>
-          <Button
-            onClick={onViewLeaderboard}
-            variant="outline"
-            className="font-bold border-2"
-          >
+          <Button onClick={onViewLeaderboard} variant="outline" className="font-bold border-2">
             View Leaderboard
           </Button>
         </div>

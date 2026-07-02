@@ -18,12 +18,7 @@ export function loadScores(): ScoreEntry[] {
   }
 }
 
-export function addScore(
-  name: string,
-  score: number,
-  word: string,
-  guesses: number
-): ScoreEntry[] {
+export function addScore(name: string, score: number, word: string, guesses: number): ScoreEntry[] {
   const scores = loadScores();
   const entry: ScoreEntry = {
     id: generateId(),

@@ -31,9 +31,7 @@ const HintButton = memo(function HintButton({
             {allHintsUsed ? "Give up?" : "Hints"}
           </span>
           {!allHintsUsed && !disabled ? (
-            <span className="text-xs text-muted-foreground">
-              Next: -{nextPenalty} pts
-            </span>
+            <span className="text-xs text-muted-foreground">Next: -{nextPenalty} pts</span>
           ) : allHintsUsed ? (
             <span className="text-xs text-rose-400">-25 pts penalty</span>
           ) : (

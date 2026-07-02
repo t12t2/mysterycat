@@ -1,10 +1,6 @@
 export type GameState = "waiting" | "playing" | "won" | "lost";
 
-export type LetterState =
-  | "unknown"
-  | "correctPosition"
-  | "wrongPosition"
-  | "notInWord";
+export type LetterState = "unknown" | "correctPosition" | "wrongPosition" | "notInWord";
 
 export interface LetterPosition {
   letter: string;

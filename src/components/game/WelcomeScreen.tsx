@@ -18,8 +18,7 @@ const WelcomeScreen = memo(function WelcomeScreen({
         <div
           className="w-40 h-40 rounded-2xl border-2 border-amber-200 overflow-hidden shadow-md"
           style={{
-            background:
-              "linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #FDE68A 100%)",
+            background: "linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #FDE68A 100%)",
           }}
         >
           <div className="flex flex-col items-center justify-center h-full gap-2">
@@ -36,8 +35,7 @@ const WelcomeScreen = memo(function WelcomeScreen({
             Ready to Play?
           </h2>
           <p className="text-muted-foreground text-sm mt-1 max-w-xs mx-auto">
-            Guess the 5-letter word in 6 tries. Each wrong guess reveals more
-            of the mystery cat!
+            Guess the 5-letter word in 6 tries. Each wrong guess reveals more of the mystery cat!
           </p>
         </div>
 

@@ -28,9 +28,17 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Word Guess — Guess the 5-letter word" },
-      { name: "description", content: "A playful Wordle-style word guessing game with hints, a cute cat, and a leaderboard." },
+      {
+        name: "description",
+        content:
+          "A playful Wordle-style word guessing game with hints, a cute cat, and a leaderboard.",
+      },
       { property: "og:title", content: "Word Guess — Guess the 5-letter word" },
-      { property: "og:description", content: "A playful Wordle-style word guessing game with hints, a cute cat, and a leaderboard." },
+      {
+        property: "og:description",
+        content:
+          "A playful Wordle-style word guessing game with hints, a cute cat, and a leaderboard.",
+      },
     ],
   }),
   component: Index,
@@ -131,7 +139,7 @@ function Index() {
       setShowWinOverlay(false);
       setShowLeaderboard(true);
     },
-    [game.score, game.currentWord, game.guessCount]
+    [game.score, game.currentWord, game.guessCount],
   );
 
   const handleSkipSave = useCallback(() => {

@@ -78,10 +78,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Word Guess — Guess the 5-letter word" },
-      { name: "description", content: "A playful Wordle-style word guessing game with hints, a cute cat, and a leaderboard." },
+      {
+        name: "description",
+        content:
+          "A playful Wordle-style word guessing game with hints, a cute cat, and a leaderboard.",
+      },
       { name: "author", content: "Lovable" },
       { property: "og:title", content: "Word Guess — Guess the 5-letter word" },
-      { property: "og:description", content: "A playful Wordle-style word guessing game with hints, a cute cat, and a leaderboard." },
+      {
+        property: "og:description",
+        content:
+          "A playful Wordle-style word guessing game with hints, a cute cat, and a leaderboard.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },

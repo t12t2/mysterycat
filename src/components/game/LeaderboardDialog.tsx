@@ -1,10 +1,5 @@
 import { useMemo } from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import type { ScoreEntry } from "@/lib/game-types";
 
@@ -18,19 +13,27 @@ interface LeaderboardDialogProps {
 
 function trophyEmoji(index: number): string {
   switch (index) {
-    case 0: return "🥇";
-    case 1: return "🥈";
-    case 2: return "🥉";
-    default: return "";
+    case 0:
+      return "🥇";
+    case 1:
+      return "🥈";
+    case 2:
+      return "🥉";
+    default:
+      return "";
   }
 }
 
 function rankColor(index: number): string {
   switch (index) {
-    case 0: return "text-yellow-500";
-    case 1: return "text-gray-400";
-    case 2: return "text-amber-700";
-    default: return "text-foreground";
+    case 0:
+      return "text-yellow-500";
+    case 1:
+      return "text-gray-400";
+    case 2:
+      return "text-amber-700";
+    default:
+      return "text-foreground";
   }
 }
 
@@ -58,9 +61,7 @@ export default function LeaderboardDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-md max-h-[85vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-center">
-            🏆 Leaderboard
-          </DialogTitle>
+          <DialogTitle className="text-2xl font-bold text-center">🏆 Leaderboard</DialogTitle>
         </DialogHeader>
 
         {scores.length === 0 ? (
@@ -84,17 +85,13 @@ export default function LeaderboardDialog({
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between">
                     <span className="font-semibold truncate">{score.name}</span>
-                    <span className="text-blue-600 font-bold text-sm">
-                      {score.score} pts
-                    </span>
+                    <span className="text-blue-600 font-bold text-sm">{score.score} pts</span>
                   </div>
                   <div className="flex items-center justify-between text-xs text-muted-foreground mt-0.5">
                     <span>Word: {score.word}</span>
                     <span>{score.guesses} guesses</span>
                   </div>
-                  <div className="text-xs text-muted-foreground">
-                    {formatDate(score.date)}
-                  </div>
+                  <div className="text-xs text-muted-foreground">{formatDate(score.date)}</div>
                 </div>
               </div>
             ))}
@@ -111,10 +108,7 @@ export default function LeaderboardDialog({
           >
             Start New Game
           </Button>
-          <Button
-            variant="outline"
-            onClick={() => onOpenChange(false)}
-          >
+          <Button variant="outline" onClick={() => onOpenChange(false)}>
             Close
           </Button>
           {scores.length > 0 && (

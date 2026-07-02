@@ -16,9 +16,7 @@ const VALID_WORDS_SET: Set<string> = new Set([
 ]);
 
 // Filter secret words to only those in the valid dictionary
-const SECRET_WORDS = SECRET_WORDS_CANDIDATES.filter((w) =>
-  VALID_WORDS_SET.has(w)
-);
+const SECRET_WORDS = SECRET_WORDS_CANDIDATES.filter((w) => VALID_WORDS_SET.has(w));
 
 function randomWord(): string {
   return SECRET_WORDS[Math.floor(Math.random() * SECRET_WORDS.length)] ?? "CRANE";
@@ -61,9 +59,7 @@ export function getDisplayWord(game: GameData): string[] {
 }
 
 export function isWordComplete(game: GameData): boolean {
-  return (
-    Object.keys(game.revealedLetters).length === game.currentWord.length
-  );
+  return Object.keys(game.revealedLetters).length === game.currentWord.length;
 }
 
 function isValidWord(word: string): boolean {
@@ -102,8 +98,7 @@ export function useHint(game: GameData): GameData {
   }
 
   // Reveal a random unrevealed letter
-  const randomIndex =
-    unrevealedIndices[Math.floor(Math.random() * unrevealedIndices.length)]!;
+  const randomIndex = unrevealedIndices[Math.floor(Math.random() * unrevealedIndices.length)]!;
   const letter = game.currentWord[randomIndex]!;
   newGame.revealedLetters[randomIndex] = letter;
 
@@ -254,9 +249,7 @@ export function revealWord(game: GameData): GameData {
 }
 
 /** Get the best known state for each letter across all guesses */
-export function getKeyboardLetterStates(
-  game: GameData
-): Record<string, LetterState> {
+export function getKeyboardLetterStates(game: GameData): Record<string, LetterState> {
   const states: Record<string, LetterState> = {};
 
   for (const feedback of game.wordFeedback) {

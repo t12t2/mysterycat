@@ -40,7 +40,7 @@ const GameKeyboard = memo(function GameKeyboard({
     (letter: string) => {
       if (!disabled) onKeyPress(letter);
     },
-    [disabled, onKeyPress]
+    [disabled, onKeyPress],
   );
 
   return (
