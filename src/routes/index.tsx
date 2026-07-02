@@ -108,7 +108,7 @@ function Index() {
 
   const handleUseHint = useCallback(() => {
     setGame((prev) => {
-      const next = useHint(prev);
+      const next = applyHint(prev);
       if (next.gameState === "lost" && prev.gameState === "playing") {
         setWordRevealed(true);
       }
