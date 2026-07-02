@@ -35,7 +35,7 @@ const WelcomeScreen = memo(function WelcomeScreen({
     <div className="flex flex-col items-center justify-center animate-in fade-in duration-500 py-6 px-4">
       {showBanner && (
         <div className="w-full max-w-md mb-4 rounded-xl bg-red-600 text-white font-bold text-center py-3 px-4 shadow-md">
-          Welcome to my test playground
+          Welcome to my test playground!
         </div>
       )}
       <div className="bg-white shadow-xl rounded-3xl p-6 sm:p-8 max-w-md w-full flex flex-col items-center gap-5 border border-gray-100">
