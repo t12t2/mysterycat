@@ -61,7 +61,6 @@ function Index() {
     }
   }, [game.gameState]);
 
-
   const handleStartGame = useCallback(() => {
     setGame(startNewGame());
     setInputText("");
