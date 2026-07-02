@@ -14,6 +14,7 @@ const WelcomeScreen = memo(function WelcomeScreen({
 }: WelcomeScreenProps) {
   const [showBanner, setShowBanner] = useState(false);
   const [bannerColor, setBannerColor] = useState<string>("#dc2626");
+  const [bannerText, setBannerText] = useState<string>("Welcome to my test playground!");
 
   useEffect(() => {
     let cancelled = false;
