@@ -87,7 +87,7 @@ function Index() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [game.gameState, inputText]);
+  }, [game.gameState, inputText, handleSubmitGuess]);
 
   const handleStartGame = useCallback(() => {
     setGame(startNewGame());
