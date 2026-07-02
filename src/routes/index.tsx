@@ -79,6 +79,34 @@ function Index() {
     }
   }, [inputText, game]);
 
+  // Physical keyboard input
+  useEffect(() => {
+    if (game.gameState !== "playing") return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+
+      if (e.key === "Enter") {
+        e.preventDefault();
+        if (inputText.length > 0) {
+          handleSubmitGuess();
+        }
+      } else if (e.key === "Backspace") {
+        e.preventDefault();
+        setInputText((prev) => prev.slice(0, -1));
+      } else if (/^[a-zA-Z]$/.test(e.key)) {
+        e.preventDefault();
+        setInputText((prev) => {
+          if (prev.length < 5) return prev + e.key.toUpperCase();
+          return prev;
+        });
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [game.gameState, inputText, handleSubmitGuess]);
+
   const handleUseHint = useCallback(() => {
     setGame((prev) => {
       const next = applyHint(prev);
