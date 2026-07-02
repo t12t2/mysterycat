@@ -66,7 +66,7 @@ function isValidWord(word: string): boolean {
   return VALID_WORDS_SET.has(word);
 }
 
-export function useHint(game: GameData): GameData {
+export function applyHint(game: GameData): GameData {
   if (game.hintsUsed >= MAX_HINTS) return game;
   if (game.gameState !== "playing") return game;
 
