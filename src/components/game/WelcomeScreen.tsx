@@ -13,6 +13,7 @@ const WelcomeScreen = memo(function WelcomeScreen({
   onViewLeaderboard,
 }: WelcomeScreenProps) {
   const [showBanner, setShowBanner] = useState(false);
+  const [bannerColor, setBannerColor] = useState<string>("#dc2626");
 
   useEffect(() => {
     let cancelled = false;
@@ -22,6 +23,13 @@ const WelcomeScreen = memo(function WelcomeScreen({
       if (cancelled) return;
       try {
         if (client.checkGate("welcome_banner")) setShowBanner(true);
+        try {
+          const config = client.getDynamicConfig("welcome_banner_color");
+          const color = config.get<string>("color", "#dc2626");
+          if (color) setBannerColor(color);
+        } catch {
+          // dynamic config not configured — use default red
+        }
       } catch {
         // gate not configured — leave banner hidden
       }
@@ -34,7 +42,10 @@ const WelcomeScreen = memo(function WelcomeScreen({
   return (
     <div className="flex flex-col items-center justify-center animate-in fade-in duration-500 py-6 px-4">
       {showBanner && (
-        <div className="w-full max-w-md mb-4 rounded-xl bg-red-600 text-white font-bold text-center py-3 px-4 shadow-md">
+        <div
+          className="w-full max-w-md mb-4 rounded-xl text-white font-bold text-center py-3 px-4 shadow-md"
+          style={{ backgroundColor: bannerColor }}
+        >
           Welcome to my test playground!
         </div>
       )}
