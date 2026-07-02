@@ -49,7 +49,7 @@ const WelcomeScreen = memo(function WelcomeScreen({
           className="w-full max-w-md mb-4 rounded-xl text-white font-bold text-center py-3 px-4 shadow-md"
           style={{ backgroundColor: bannerColor }}
         >
-          Welcome to my test playground!
+          {bannerText}
         </div>
       )}
       <div className="bg-white shadow-xl rounded-3xl p-6 sm:p-8 max-w-md w-full flex flex-col items-center gap-5 border border-gray-100">
