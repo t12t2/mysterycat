@@ -1,5 +1,6 @@
-import { memo } from "react";
+import { memo, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { initStatsig } from "@/lib/statsig";
 
 interface WelcomeScreenProps {
   onStartGame: () => void;
@@ -11,8 +12,32 @@ const WelcomeScreen = memo(function WelcomeScreen({
   onStartGame,
   onViewLeaderboard,
 }: WelcomeScreenProps) {
+  const [showBanner, setShowBanner] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    const p = initStatsig();
+    if (!p) return;
+    p.then((client) => {
+      if (cancelled) return;
+      try {
+        if (client.checkGate("welcome_banner")) setShowBanner(true);
+      } catch {
+        // gate not configured — leave banner hidden
+      }
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   return (
-    <div className="flex items-center justify-center animate-in fade-in duration-500 py-6 px-4">
+    <div className="flex flex-col items-center justify-center animate-in fade-in duration-500 py-6 px-4">
+      {showBanner && (
+        <div className="w-full max-w-md mb-4 rounded-xl bg-red-600 text-white font-bold text-center py-3 px-4 shadow-md">
+          Welcome to my test playground
+        </div>
+      )}
       <div className="bg-white shadow-xl rounded-3xl p-6 sm:p-8 max-w-md w-full flex flex-col items-center gap-5 border border-gray-100">
         {/* Cat illustration */}
         <div
