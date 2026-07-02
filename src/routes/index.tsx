@@ -6,7 +6,7 @@ import {
   startNewGame,
   getDisplayWord,
   makeGuess,
-  useHint,
+  applyHint,
   revealWord,
   getKeyboardLetterStates,
 } from "@/lib/game-engine";
