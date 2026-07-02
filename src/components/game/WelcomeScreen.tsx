@@ -14,6 +14,7 @@ const WelcomeScreen = memo(function WelcomeScreen({
 }: WelcomeScreenProps) {
   const [showBanner, setShowBanner] = useState(false);
   const [bannerColor, setBannerColor] = useState<string>("#dc2626");
+  const [bannerText, setBannerText] = useState<string>("Welcome to my test playground!");
 
   useEffect(() => {
     let cancelled = false;
@@ -25,10 +26,12 @@ const WelcomeScreen = memo(function WelcomeScreen({
         if (client.checkGate("welcome_banner")) setShowBanner(true);
         try {
           const config = client.getDynamicConfig("welcome_banner_color");
-          const color = config.get<string>("color", "#dc2626");
+          const color = config.get<string>("banner_color", "#dc2626");
           if (color) setBannerColor(color);
+          const text = config.get<string>("banner_text", "Welcome to my test playground!");
+          if (text) setBannerText(text);
         } catch {
-          // dynamic config not configured — use default red
+          // dynamic config not configured — use defaults
         }
       } catch {
         // gate not configured — leave banner hidden
@@ -46,7 +49,7 @@ const WelcomeScreen = memo(function WelcomeScreen({
           className="w-full max-w-md mb-4 rounded-xl text-white font-bold text-center py-3 px-4 shadow-md"
           style={{ backgroundColor: bannerColor }}
         >
-          Welcome to my test playground!
+          {bannerText}
         </div>
       )}
       <div className="bg-white shadow-xl rounded-3xl p-6 sm:p-8 max-w-md w-full flex flex-col items-center gap-5 border border-gray-100">
