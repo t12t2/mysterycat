@@ -115,7 +115,7 @@ export function applyHint(game: GameData): GameData {
 
 export function makeGuess(game: GameData, word: string): { game: GameData; result: GuessResult } {
   const upperWord = word.toUpperCase();
-  let newGame: GameData = {
+  const newGame: GameData = {
     ...game,
     revealedLetters: { ...game.revealedLetters },
     wordGuesses: [...game.wordGuesses],
