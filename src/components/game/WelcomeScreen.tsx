@@ -26,10 +26,12 @@ const WelcomeScreen = memo(function WelcomeScreen({
         if (client.checkGate("welcome_banner")) setShowBanner(true);
         try {
           const config = client.getDynamicConfig("welcome_banner_color");
-          const color = config.get<string>("color", "#dc2626");
+          const color = config.get<string>("banner_color", "#dc2626");
           if (color) setBannerColor(color);
+          const text = config.get<string>("banner_text", "Welcome to my test playground!");
+          if (text) setBannerText(text);
         } catch {
-          // dynamic config not configured — use default red
+          // dynamic config not configured — use defaults
         }
       } catch {
         // gate not configured — leave banner hidden
