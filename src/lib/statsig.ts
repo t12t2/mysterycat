@@ -11,7 +11,7 @@ export function initStatsig(): Promise<StatsigClient> | null {
 
   const client = new StatsigClient(
     "client-oLNCMhUWliTGN64TdWS3R2c1fqZpLbOleCmviTY9JOR",
-    { userID: "user-id" },
+    {},
     {
       plugins: [new StatsigSessionReplayPlugin(), new StatsigAutoCapturePlugin()],
     },
