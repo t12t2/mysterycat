@@ -15,6 +15,7 @@ const WelcomeScreen = memo(function WelcomeScreen({
   const [showBanner, setShowBanner] = useState(false);
   const [bannerColor, setBannerColor] = useState<string>("#dc2626");
   const [bannerText, setBannerText] = useState<string>("Welcome to my test playground!");
+  const [welcomeTitle, setWelcomeTitle] = useState<string>("Ready to Play?");
 
   useEffect(() => {
     let cancelled = false;
@@ -32,6 +33,13 @@ const WelcomeScreen = memo(function WelcomeScreen({
           if (text) setBannerText(text);
         } catch {
           // dynamic config not configured — use defaults
+        }
+        try {
+          const store = client.getParameterStore("welcome_message");
+          const title = store.get<string>("title", "Ready to Play?");
+          if (title) setWelcomeTitle(title);
+        } catch {
+          // parameter store not configured — use default
         }
       } catch {
         // gate not configured — leave banner hidden
