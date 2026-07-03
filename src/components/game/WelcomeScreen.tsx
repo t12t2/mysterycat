@@ -15,6 +15,7 @@ const WelcomeScreen = memo(function WelcomeScreen({
   const [showBanner, setShowBanner] = useState(false);
   const [bannerColor, setBannerColor] = useState<string>("#dc2626");
   const [bannerText, setBannerText] = useState<string>("Welcome to my test playground!");
+  const [welcomeTitle, setWelcomeTitle] = useState<string>("Ready to Play?");
 
   useEffect(() => {
     let cancelled = false;
@@ -32,6 +33,13 @@ const WelcomeScreen = memo(function WelcomeScreen({
           if (text) setBannerText(text);
         } catch {
           // dynamic config not configured — use defaults
+        }
+        try {
+          const store = client.getParameterStore("welcome_message");
+          const title = store.get<string>("title", "Ready to Play?");
+          if (title) setWelcomeTitle(title);
+        } catch {
+          // parameter store not configured — use default
         }
       } catch {
         // gate not configured — leave banner hidden
@@ -71,7 +79,7 @@ const WelcomeScreen = memo(function WelcomeScreen({
         {/* Title + subtitle */}
         <div className="text-center">
           <h2 className="text-3xl font-black bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-            Ready to Play?
+            {welcomeTitle}
           </h2>
           <p className="text-muted-foreground text-sm mt-1 max-w-xs mx-auto">
             Guess the 5-letter word in 6 tries. Each wrong guess reveals more of the mystery cat!
