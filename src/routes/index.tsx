@@ -176,7 +176,7 @@ function Index() {
   return (
     <div className="min-h-screen overflow-auto bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
       <header className="border-b border-white/60 bg-white/40 backdrop-blur-md sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-10 py-3 flex items-center justify-between">
           <h1 className="text-2xl font-black bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
             🐱 Word Guess
           </h1>
@@ -203,15 +203,15 @@ function Index() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-6 py-8">
+      <main className="max-w-[1600px] mx-auto px-6 lg:px-10 xl:px-14 py-6 lg:py-10">
         {game.gameState === "waiting" ? (
           <WelcomeScreen
             onStartGame={handleStartGame}
             onViewLeaderboard={() => setShowLeaderboard(true)}
           />
         ) : (
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
-            <div className="lg:w-[380px] shrink-0 flex flex-col gap-5">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-16 items-start">
+            <div className="lg:w-[440px] xl:w-[480px] shrink-0 flex flex-col gap-5 w-full">
               <GameHeader
                 score={game.score}
                 guessCount={game.guessCount}
@@ -234,10 +234,10 @@ function Index() {
               )}
             </div>
 
-            <div className="flex-1 flex flex-col gap-5 min-w-0">
+            <div className="flex-1 flex flex-col gap-5 lg:gap-6 min-w-0 w-full">
               <WordDisplay letters={displayLetters} />
               {game.wordFeedback.length > 0 && (
-                <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 border border-white/80 shadow-sm">
+                <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 lg:p-5 border border-white/80 shadow-sm">
                   <GuessFeedback feedback={game.wordFeedback} />
                 </div>
               )}
@@ -299,3 +299,4 @@ function Index() {
     </div>
   );
 }
+
