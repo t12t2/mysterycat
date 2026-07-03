@@ -24,18 +24,18 @@ const HintButton = memo(function HintButton({
   const nextPenalty = hintsUsed < maxHints ? HINT_PENALTIES[hintsUsed] : 0;
 
   return (
-    <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-3 border border-white/80 shadow-sm">
-      <div className="flex items-center justify-between gap-3">
+    <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 lg:p-5 border border-white/80 shadow-sm">
+      <div className="flex items-center justify-between gap-3 lg:gap-4">
         <div className="flex flex-col">
-          <span className="text-xs font-semibold text-amber-500 uppercase tracking-wider">
+          <span className="text-xs lg:text-sm font-semibold text-amber-500 uppercase tracking-wider">
             {allHintsUsed ? "Give up?" : "Hints"}
           </span>
           {!allHintsUsed && !disabled ? (
-            <span className="text-xs text-muted-foreground">Next: -{nextPenalty} pts</span>
+            <span className="text-xs lg:text-sm text-muted-foreground">Next: -{nextPenalty} pts</span>
           ) : allHintsUsed ? (
-            <span className="text-xs text-rose-400">-25 pts penalty</span>
+            <span className="text-xs lg:text-sm text-rose-400">-25 pts penalty</span>
           ) : (
-            <span className="text-xs text-muted-foreground">No hints left</span>
+            <span className="text-xs lg:text-sm text-muted-foreground">No hints left</span>
           )}
         </div>
 
@@ -46,7 +46,7 @@ const HintButton = memo(function HintButton({
             variant="outline"
             size="sm"
             className="bg-rose-50 border-rose-300 text-rose-700 hover:bg-rose-100 
-              hover:border-rose-400 font-bold transition-all"
+              hover:border-rose-400 font-bold transition-all lg:text-sm"
           >
             😿 Reveal Word
           </Button>
@@ -57,7 +57,7 @@ const HintButton = memo(function HintButton({
             variant="outline"
             size="sm"
             className="bg-amber-50 border-amber-300 text-amber-700 hover:bg-amber-100 
-              hover:border-amber-400 font-bold transition-all disabled:opacity-50"
+              hover:border-amber-400 font-bold transition-all disabled:opacity-50 lg:text-sm"
           >
             💡 Reveal Letter ({remaining}/{maxHints})
           </Button>
@@ -68,3 +68,4 @@ const HintButton = memo(function HintButton({
 });
 
 export default HintButton;
+
