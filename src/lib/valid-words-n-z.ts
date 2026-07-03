@@ -208,6 +208,7 @@ export const VALID_WORDS_NZ: string[] = [
   "PASTS",
   "PASTY",
   "PATCH",
+  "PATHS",
   "PATEN",
   "PATER",
   "PATES",
