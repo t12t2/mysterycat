@@ -35,8 +35,8 @@ const WelcomeScreen = memo(function WelcomeScreen({
           // dynamic config not configured — use defaults
         }
         try {
-          const store = client.getParameterStore("welcome_message");
-          const title = store.get<string>("title", "Ready to Play?");
+          const store = client.getParameterStore("welcome_screen");
+          const title = store.get<string>("welcome_message", "Ready to Play?");
           if (title) setWelcomeTitle(title);
         } catch {
           // parameter store not configured — use default
