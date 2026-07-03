@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { initStatsig } from "../lib/statsig";
+import { initAmplitude } from "../lib/amplitude";
 
 function NotFoundComponent() {
   return (
@@ -128,6 +129,7 @@ function RootComponent() {
 
   useEffect(() => {
     initStatsig();
+    initAmplitude();
   }, []);
 
   return (
