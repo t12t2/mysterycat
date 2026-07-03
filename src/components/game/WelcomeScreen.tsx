@@ -35,11 +35,12 @@ const WelcomeScreen = memo(function WelcomeScreen({
           // dynamic config not configured — use defaults
         }
         try {
-          const store = client.getParameterStore("welcome_screen");
-          const title = store.get<string>("welcome_message", "Ready to Play?");
+          const title = client
+            .getExperiment("welcome_screen")
+            .get<string>("welcome_message", "Ready to Play?");
           if (title) setWelcomeTitle(title);
         } catch {
-          // parameter store not configured — use default
+          // experiment not configured — use default
         }
       } catch {
         // gate not configured — leave banner hidden
