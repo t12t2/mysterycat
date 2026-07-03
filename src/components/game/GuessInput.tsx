@@ -39,8 +39,8 @@ const GuessInput = memo(function GuessInput({
   );
 
   return (
-    <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 border border-white/80 shadow-sm">
-      <div className="flex gap-2 max-w-sm mx-auto">
+    <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 lg:p-5 border border-white/80 shadow-sm">
+      <div className="flex gap-3 max-w-2xl mx-auto">
         <Input
           value={value}
           onChange={handleChange}
@@ -48,7 +48,7 @@ const GuessInput = memo(function GuessInput({
           placeholder="Type a 5-letter word..."
           maxLength={5}
           disabled={disabled}
-          className="text-center text-lg font-bold tracking-widest uppercase bg-white border-gray-200"
+          className="text-center text-lg lg:text-xl font-bold tracking-widest uppercase bg-white border-gray-200 h-12 lg:h-14"
           autoComplete="off"
           autoCorrect="off"
           spellCheck={false}
@@ -56,13 +56,13 @@ const GuessInput = memo(function GuessInput({
         <Button
           onClick={onSubmit}
           disabled={disabled || value.length === 0}
-          className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold px-6 shadow-sm"
+          className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold px-6 lg:px-8 lg:text-lg shadow-sm h-12 lg:h-14"
         >
           Guess!
         </Button>
       </div>
       {errorMessage && (
-        <p className="text-xs text-rose-500 font-semibold animate-shake text-center mt-2">
+        <p className="text-xs lg:text-sm text-rose-500 font-semibold animate-shake text-center mt-2">
           {errorMessage}
         </p>
       )}
@@ -71,3 +71,4 @@ const GuessInput = memo(function GuessInput({
 });
 
 export default GuessInput;
+

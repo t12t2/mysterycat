@@ -44,15 +44,15 @@ const GameKeyboard = memo(function GameKeyboard({
   );
 
   return (
-    <div className="bg-white/40 backdrop-blur-sm rounded-2xl p-3 border border-white/60">
-      <div className="flex flex-col gap-1.5 items-center">
+    <div className="bg-white/40 backdrop-blur-sm rounded-2xl p-3 lg:p-4 border border-white/60">
+      <div className="flex flex-col gap-1.5 lg:gap-2 items-center">
         {KEYBOARD_ROWS.map((row, rowIndex) => (
-          <div key={rowIndex} className="flex gap-1 justify-center w-full">
+          <div key={rowIndex} className="flex gap-1 lg:gap-1.5 justify-center w-full">
             {rowIndex === 2 && (
               <button
                 onClick={onSubmit}
                 disabled={disabled}
-                className="px-3 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white text-xs font-bold
+                className="px-3 lg:px-5 py-3 lg:py-4 rounded-lg lg:rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white text-xs lg:text-sm font-bold
                   hover:from-blue-600 hover:to-purple-700 border border-blue-600 transition-all shadow-sm
                   disabled:opacity-50 disabled:cursor-not-allowed"
               >
@@ -65,7 +65,7 @@ const GameKeyboard = memo(function GameKeyboard({
                 onClick={() => handleKey(letter)}
                 disabled={disabled}
                 className={`
-                  w-9 h-11 sm:w-10 sm:h-12 rounded-lg text-sm font-bold border
+                  w-9 h-11 sm:w-10 sm:h-12 lg:w-12 lg:h-14 xl:w-14 xl:h-16 rounded-lg lg:rounded-xl text-sm lg:text-base xl:text-lg font-bold border
                   transition-all duration-200 active:scale-95
                   disabled:opacity-50 disabled:cursor-not-allowed
                   ${keyColor(letterStates[letter])}
@@ -78,7 +78,7 @@ const GameKeyboard = memo(function GameKeyboard({
               <button
                 onClick={onDelete}
                 disabled={disabled}
-                className="px-3 py-3 rounded-lg bg-amber-500 text-white text-xs font-bold
+                className="px-3 lg:px-5 py-3 lg:py-4 rounded-lg lg:rounded-xl bg-amber-500 text-white text-xs lg:text-sm font-bold
                   hover:bg-amber-600 border border-amber-600 transition-all shadow-sm
                   disabled:opacity-50 disabled:cursor-not-allowed"
               >
@@ -93,3 +93,4 @@ const GameKeyboard = memo(function GameKeyboard({
 });
 
 export default GameKeyboard;
+

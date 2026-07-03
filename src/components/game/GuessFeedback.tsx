@@ -22,17 +22,17 @@ const GuessFeedback = memo(function GuessFeedback({ feedback }: GuessFeedbackPro
   if (feedback.length === 0) return null;
 
   return (
-    <div className="flex flex-col gap-2">
-      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+    <div className="flex flex-col gap-2 lg:gap-3">
+      <p className="text-xs lg:text-sm font-semibold text-muted-foreground uppercase tracking-wider">
         Previous Guesses
       </p>
       {feedback.map((row, rowIndex) => (
-        <div key={rowIndex} className="flex gap-2 justify-center">
+        <div key={rowIndex} className="flex gap-2 lg:gap-3 justify-center">
           {row.map((lp, colIndex) => (
             <div
               key={colIndex}
               className={`
-                w-11 h-11 flex items-center justify-center rounded-lg text-sm font-bold
+                w-11 h-11 sm:w-12 sm:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 flex items-center justify-center rounded-lg lg:rounded-xl text-sm lg:text-base xl:text-lg font-bold
                 border transition-all duration-300
                 ${letterStateColor(lp.state)}
               `}
@@ -47,3 +47,4 @@ const GuessFeedback = memo(function GuessFeedback({ feedback }: GuessFeedbackPro
 });
 
 export default GuessFeedback;
+

@@ -96,7 +96,7 @@ export default function CatDrawing({
 
       {/* Cat container — scales to fill available space */}
       <div
-        className={`relative w-full aspect-[280/220] max-w-[360px] rounded-3xl border-2 overflow-hidden transition-all duration-500 shadow-lg ${borderColor} ${bgGlow}`}
+        className={`relative w-full aspect-[280/220] max-w-[360px] lg:max-w-[420px] xl:max-w-[480px] rounded-3xl border-2 overflow-hidden transition-all duration-500 shadow-lg ${borderColor} ${bgGlow}`}
         style={{ background: "linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #FDE68A 100%)" }}
       >
         {effectiveIncorrect === 0 ? (
