@@ -9,5 +9,6 @@ export function initAmplitude() {
   amplitude.initAll("4be9a75d5031b42c4297c107c2980723", {
     analytics: { autocapture: true },
     sessionReplay: { sampleRate: 1 },
+    engagement: {},
   });
 }
